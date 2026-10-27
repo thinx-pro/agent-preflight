@@ -89,9 +89,3 @@ Runs every bundled tool on a small fixture with a known answer (a planted fake t
 ## License
 
 MIT
-
----
-
-### 中文说明
-
-agent-preflight 是一组 Claude Code 技能（Skill），检查编码 Agent 自己不会检查的事：会话记录里有没有你的 API key、Agent 从当前 shell 能删掉或发布什么、插件装之前能做什么、会话换个模型实际花多少钱、新测试在没修复的代码上会不会失败、夜里还有哪些进程在跑。在 Claude Code 里运行 `/plugin marketplace add thinx-pro/agent-preflight` 和 `/plugin install all@agent-preflight`，然后直接用自然语言提问即可。全部离线运行，零依赖，不打印密钥值，任何修改都要你先同意。
