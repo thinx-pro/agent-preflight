@@ -12,37 +12,49 @@ Install once in Claude Code, then just ask: *"did my agent log any of my API key
 
 ## Install
 
-In Claude Code:
+In Claude Code, add the marketplace once:
 
 ```
 /plugin marketplace add thinx-pro/agent-preflight
+```
+
+Then install **just the skills you want**, one plugin per skill (names in the table below):
+
+```
+/plugin install trace-scrub@agent-preflight
+/plugin install cost-cliff@agent-preflight
+```
+
+or **all 16 at once**:
+
+```
 /plugin install all@agent-preflight
 ```
 
-Restart Claude Code, then ask in plain words (see the table). To install only some of them, use the plugin name instead of `all`, e.g. `/plugin install trace-scrub@agent-preflight`.
+Restart Claude Code, then ask in plain words. Each skill adds about 50–130 tokens to every session (its description); all 16 add about 1.6K. Pick either `all` or individual plugins, not both, or the same skill is loaded once per plugin.
 
-From a terminal, the same thing is `claude plugin marketplace add thinx-pro/agent-preflight` and `claude plugin install all@agent-preflight`.
+From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then `claude plugin install <name>@agent-preflight`.
 
 ## The skills
 
-| Ask Claude… | Skill (plugin) | What it does |
+| Ask Claude… | Install name | What it does |
 |---|---|---|
 | **Secrets & access** | | |
 | "Did my agent log any of my API keys?" | `trace-scrub` | Finds keys and tokens in Claude Code, Codex, Gemini CLI, OpenCode, Cline/Roo and Aider session logs; redacts them in place if you say yes |
 | "Where are my OpenAI / Anthropic keys stored?" | `ai-key-map` | Every copy of every AI provider key on the machine, grouped by fingerprint, plus a rotation checklist |
-| "What could the agent delete if I leave it running?" | `blast-check` (blastmap) | Permission modes, logged-in cloud/kube CLIs, token scopes, publish tokens, SSH keys, Docker socket, mounted shares, then the smallest fixes |
+| "What could the agent delete if I leave it running?" | `blastmap` (skill: blast-check) | Permission modes, logged-in cloud/kube CLIs, token scopes, publish tokens, SSH keys, Docker socket, mounted shares, then the smallest fixes |
 | "Is this plugin safe to install?" | `mod-audit` | Static map of what a Claude Code plugin hooks, runs, reads, writes and contacts; lockfile + upgrade diff |
 | "Does this page hide instructions for AI?" | `cloak-diff` | Text people can't see but agents read (hidden prompt injection), crawler-only content |
-| "What did the agent send out this week?" | `outbound-check` (agent-trail) | Form posts, pushes, publishes and messages from your transcripts; asks before government, bank or health sites |
+| "What did the agent send out this week?" | `agent-trail` (skill: outbound-check) | Form posts, pushes, publishes and messages from your transcripts; asks before government, bank or health sites |
 | **Cost** | | |
 | "Would Haiku have been cheaper for my sessions?" | `cost-cliff` | Replays your own sessions on other models' prices, including long-prompt tiers |
 | "Where did my tokens go?" | `token-blame` | Main thread vs each subagent type, inherited expensive models, cache rebuilds and why |
-| "I'm leaving this running overnight." | `overnight-preflight` (nightcap) | Pinned tiers, a hard dollar cap and a morning report for paid tools and side effects |
+| "I'm leaving this running overnight." | `nightcap` (skill: overnight-preflight) | Pinned tiers, a hard dollar cap and a morning report for paid tools and side effects |
 | "What agent processes are still running?" | `agent-ps` | Sessions, daemons, runaway test loops, secret env var names held, old versions eating disk |
 | **Verification** | | |
 | "Does my new test actually test the fix?" | `fail-first` | Runs changed tests on the code before and after; flags tests that pass without the fix |
 | "Would my hooks stop the agent from gaming the tests?" | `cheat-drill` | Scores your hooks against 39 known cheat moves and 15 legitimate controls |
-| "Is the Rust port equivalent to the old one?" | `port-verify` (port-diff) | Runs old and new on the same inputs, normalizes noise, grades BREAK / DIFF / SAME |
+| "Is the Rust port equivalent to the old one?" | `port-diff` (skill: port-verify) | Runs old and new on the same inputs, normalizes noise, grades BREAK / DIFF / SAME |
 | "Walk through this README like a new user." | `readme-walk` | Follows the README literally in a clean copy and writes a friction log |
 | **Models** | | |
 | "Does my local model do tool calls properly?" | `toolcall-smoke` | 20 tool-calling cases against Ollama, llama.cpp, LM Studio, vLLM or any OpenAI-compatible server |
