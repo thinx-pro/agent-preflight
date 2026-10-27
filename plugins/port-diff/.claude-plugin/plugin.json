@@ -1,0 +1,17 @@
+{
+  "name": "port-diff",
+  "version": "0.1.0",
+  "description": "Behavior-equivalence check for agent-driven ports and rewrites: old vs new on the same inputs",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/port-diff",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "porting",
+    "rewrite",
+    "differential-testing"
+  ]
+}

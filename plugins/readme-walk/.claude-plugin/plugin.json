@@ -1,0 +1,17 @@
+{
+  "name": "readme-walk",
+  "version": "0.1.0",
+  "description": "Follow a README literally in a clean copy and write a friction log with concrete fixes",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/readme-walk",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "readme",
+    "docs",
+    "onboarding"
+  ]
+}

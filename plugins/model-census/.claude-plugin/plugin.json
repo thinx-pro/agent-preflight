@@ -1,0 +1,17 @@
+{
+  "name": "model-census",
+  "version": "0.2.0",
+  "description": "Which AI models does this codebase use, and whose weights are they built on?",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/model-census",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "model-inventory",
+    "compliance",
+    "ai-bom"
+  ]
+}

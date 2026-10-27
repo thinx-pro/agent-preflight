@@ -1,0 +1,17 @@
+{
+  "name": "toolcall-smoke",
+  "version": "0.1.0",
+  "description": "20-case tool-calling smoke test for local models behind any OpenAI-compatible server",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/toolcall-smoke",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "local-llm",
+    "tool-calling",
+    "ollama"
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "name": "agent-preflight",
+  "owner": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "metadata": {
+    "description": "Pre-flight checks for coding agents: leaked secrets, blast radius, costs, runaway processes, cheating tests. Offline, zero dependencies.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "all",
+      "source": "./",
+      "description": "All 16 skills below in one install",
+      "version": "0.1.0",
+      "category": "bundle"
+    },
+    {
+      "name": "trace-scrub",
+      "source": "./plugins/trace-scrub",
+      "description": "Find API keys and tokens that leaked into your agent session logs, and redact them in place",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "secrets",
+        "transcripts",
+        "redaction"
+      ]
+    },
+    {
+      "name": "ai-key-map",
+      "source": "./plugins/ai-key-map",
+      "description": "Map every copy of your AI provider keys on this machine, with a rotation checklist",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "api-keys",
+        "rotation",
+        "secrets"
+      ]
+    },
+    {
+      "name": "blastmap",
+      "source": "./plugins/blastmap",
+      "description": "Before a risky or unattended run: what could an agent started from this shell delete or publish?",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "blast-radius",
+        "permissions",
+        "least-privilege"
+      ]
+    },
+    {
+      "name": "mod-audit",
+      "source": "./plugins/mod-audit",
+      "description": "See what a Claude Code plugin can do (hooks, network, processes) before you install or upgrade it",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "plugins",
+        "supply-chain",
+        "audit"
+      ]
+    },
+    {
+      "name": "cloak-diff",
+      "source": "./plugins/cloak-diff",
+      "description": "Find text on a web page that people can't see but agents will read (hidden prompt injection)",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "prompt-injection",
+        "web",
+        "scraping"
+      ]
+    },
+    {
+      "name": "agent-trail",
+      "source": "./plugins/agent-trail",
+      "description": "Review what your agent sent out: form posts, pushes, publishes, messages; flag sensitive sites",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "audit-log",
+        "outbound",
+        "hooks"
+      ]
+    },
+    {
+      "name": "cost-cliff",
+      "source": "./plugins/cost-cliff",
+      "description": "Replay your Claude Code / Codex sessions on other models' prices, including long-prompt price tiers",
+      "version": "0.1.0",
+      "category": "cost",
+      "keywords": [
+        "cost",
+        "pricing",
+        "tokens"
+      ]
+    },
+    {
+      "name": "token-blame",
+      "source": "./plugins/token-blame",
+      "description": "Who spent your Claude Code tokens: main thread vs each subagent, cache rebuilds and why",
+      "version": "0.1.0",
+      "category": "cost",
+      "keywords": [
+        "tokens",
+        "subagents",
+        "cache"
+      ]
+    },
+    {
+      "name": "nightcap",
+      "source": "./plugins/nightcap",
+      "description": "Hard dollar cap, pinned tiers and a morning report for agents you leave running overnight",
+      "version": "0.1.0",
+      "category": "ops",
+      "keywords": [
+        "budget",
+        "unattended",
+        "mcp"
+      ]
+    },
+    {
+      "name": "agent-ps",
+      "source": "./plugins/agent-ps",
+      "description": "ps + du for coding agents: running sessions, runaway test loops, old versions eating disk",
+      "version": "0.2.0",
+      "category": "ops",
+      "keywords": [
+        "processes",
+        "disk",
+        "daemons"
+      ]
+    },
+    {
+      "name": "fail-first",
+      "source": "./plugins/fail-first",
+      "description": "Prove a new regression test fails without your fix and passes with it",
+      "version": "0.1.0",
+      "category": "verify",
+      "keywords": [
+        "testing",
+        "regression",
+        "verification"
+      ]
+    },
+    {
+      "name": "cheat-drill",
+      "source": "./plugins/cheat-drill",
+      "description": "Score your Claude Code hooks against 39 known agent cheat moves (editing tests, --no-verify, ...)",
+      "version": "0.1.0",
+      "category": "verify",
+      "keywords": [
+        "hooks",
+        "reward-hacking",
+        "guardrails"
+      ]
+    },
+    {
+      "name": "port-diff",
+      "source": "./plugins/port-diff",
+      "description": "Behavior-equivalence check for agent-driven ports and rewrites: old vs new on the same inputs",
+      "version": "0.1.0",
+      "category": "verify",
+      "keywords": [
+        "porting",
+        "rewrite",
+        "differential-testing"
+      ]
+    },
+    {
+      "name": "readme-walk",
+      "source": "./plugins/readme-walk",
+      "description": "Follow a README literally in a clean copy and write a friction log with concrete fixes",
+      "version": "0.1.0",
+      "category": "verify",
+      "keywords": [
+        "readme",
+        "docs",
+        "onboarding"
+      ]
+    },
+    {
+      "name": "toolcall-smoke",
+      "source": "./plugins/toolcall-smoke",
+      "description": "20-case tool-calling smoke test for local models behind any OpenAI-compatible server",
+      "version": "0.1.0",
+      "category": "models",
+      "keywords": [
+        "local-llm",
+        "tool-calling",
+        "ollama"
+      ]
+    },
+    {
+      "name": "model-census",
+      "source": "./plugins/model-census",
+      "description": "Which AI models does this codebase use, and whose weights are they built on?",
+      "version": "0.2.0",
+      "category": "models",
+      "keywords": [
+        "model-inventory",
+        "compliance",
+        "ai-bom"
+      ]
+    }
+  ]
+}

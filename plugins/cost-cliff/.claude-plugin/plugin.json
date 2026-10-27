@@ -1,0 +1,17 @@
+{
+  "name": "cost-cliff",
+  "version": "0.1.0",
+  "description": "Replay your Claude Code / Codex sessions on other models' prices, including long-prompt price tiers",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/cost-cliff",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "cost",
+    "pricing",
+    "tokens"
+  ]
+}

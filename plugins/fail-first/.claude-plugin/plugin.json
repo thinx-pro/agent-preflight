@@ -1,0 +1,17 @@
+{
+  "name": "fail-first",
+  "version": "0.1.0",
+  "description": "Prove a new regression test fails without your fix and passes with it",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/fail-first",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "testing",
+    "regression",
+    "verification"
+  ]
+}

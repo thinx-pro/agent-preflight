@@ -1,0 +1,17 @@
+{
+  "name": "cloak-diff",
+  "version": "0.1.0",
+  "description": "Find text on a web page that people can't see but agents will read (hidden prompt injection)",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/cloak-diff",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "prompt-injection",
+    "web",
+    "scraping"
+  ]
+}

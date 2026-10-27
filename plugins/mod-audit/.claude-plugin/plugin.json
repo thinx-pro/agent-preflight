@@ -1,0 +1,17 @@
+{
+  "name": "mod-audit",
+  "version": "0.1.0",
+  "description": "See what a Claude Code plugin can do (hooks, network, processes) before you install or upgrade it",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/mod-audit",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "plugins",
+    "supply-chain",
+    "audit"
+  ]
+}

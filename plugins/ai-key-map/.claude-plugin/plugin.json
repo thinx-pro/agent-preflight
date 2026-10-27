@@ -1,0 +1,17 @@
+{
+  "name": "ai-key-map",
+  "version": "0.1.0",
+  "description": "Map every copy of your AI provider keys on this machine, with a rotation checklist",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/ai-key-map",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "api-keys",
+    "rotation",
+    "secrets"
+  ]
+}

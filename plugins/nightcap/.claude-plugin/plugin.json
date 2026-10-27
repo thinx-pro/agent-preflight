@@ -1,0 +1,17 @@
+{
+  "name": "nightcap",
+  "version": "0.1.0",
+  "description": "Hard dollar cap, pinned tiers and a morning report for agents you leave running overnight",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/nightcap",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "budget",
+    "unattended",
+    "mcp"
+  ]
+}

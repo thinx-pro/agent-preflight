@@ -1,0 +1,17 @@
+{
+  "name": "blastmap",
+  "version": "0.1.0",
+  "description": "Before a risky or unattended run: what could an agent started from this shell delete or publish?",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/blastmap",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "blast-radius",
+    "permissions",
+    "least-privilege"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "agent-trail",
+  "version": "0.1.0",
+  "description": "Review what your agent sent out: form posts, pushes, publishes, messages; flag sensitive sites",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/agent-trail",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "audit-log",
+    "outbound",
+    "hooks"
+  ]
+}

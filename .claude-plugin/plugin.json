@@ -1,0 +1,37 @@
+{
+  "name": "all",
+  "version": "0.1.0",
+  "description": "All 16 agent-preflight skills in one install",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "security",
+    "cost",
+    "testing"
+  ],
+  "skills": [
+    "./plugins/trace-scrub/skills",
+    "./plugins/ai-key-map/skills",
+    "./plugins/blastmap/skills",
+    "./plugins/mod-audit/skills",
+    "./plugins/cloak-diff/skills",
+    "./plugins/agent-trail/skills",
+    "./plugins/cost-cliff/skills",
+    "./plugins/token-blame/skills",
+    "./plugins/nightcap/skills",
+    "./plugins/agent-ps/skills",
+    "./plugins/fail-first/skills",
+    "./plugins/cheat-drill/skills",
+    "./plugins/port-diff/skills",
+    "./plugins/readme-walk/skills",
+    "./plugins/toolcall-smoke/skills",
+    "./plugins/model-census/skills"
+  ]
+}

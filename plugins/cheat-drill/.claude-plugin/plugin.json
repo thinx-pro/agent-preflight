@@ -1,0 +1,17 @@
+{
+  "name": "cheat-drill",
+  "version": "0.1.0",
+  "description": "Score your Claude Code hooks against 39 known agent cheat moves (editing tests, --no-verify, ...)",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/cheat-drill",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "hooks",
+    "reward-hacking",
+    "guardrails"
+  ]
+}

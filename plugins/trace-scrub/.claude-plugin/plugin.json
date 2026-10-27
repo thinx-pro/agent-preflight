@@ -1,0 +1,17 @@
+{
+  "name": "trace-scrub",
+  "version": "0.1.0",
+  "description": "Find API keys and tokens that leaked into your agent session logs, and redact them in place",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/trace-scrub",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "secrets",
+    "transcripts",
+    "redaction"
+  ]
+}
