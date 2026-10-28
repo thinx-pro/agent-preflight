@@ -1,10 +1,10 @@
 # agent-preflight
 
-**16 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
+**17 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
 
 Install once in Claude Code, then just ask: *"did my agent log any of my API keys?"*
 
-![skills 16](https://img.shields.io/badge/skills-16-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
+![skills 17](https://img.shields.io/badge/skills-17-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
 
 ![trace-scrub finding leaked keys in agent session logs](assets/trace-scrub.png)
 
@@ -25,13 +25,13 @@ Then install **just the skills you want**, one plugin per skill (names in the ta
 /plugin install cost-cliff@agent-preflight
 ```
 
-or **all 16 at once**:
+or **all 17 at once**:
 
 ```
 /plugin install all@agent-preflight
 ```
 
-Restart Claude Code, then ask in plain words. Each skill adds about 50–130 tokens to every session (its description); all 16 add about 1.6K. Pick either `all` or individual plugins, not both, or the same skill is loaded once per plugin.
+Restart Claude Code, then ask in plain words. Each skill adds about 50–130 tokens to every session (its description); all 17 add about 1.7K. Pick either `all` or individual plugins, not both, or the same skill is loaded once per plugin.
 
 From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then `claude plugin install <name>@agent-preflight`.
 
@@ -42,6 +42,7 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 | **Secrets & access** | | |
 | "Did my agent log any of my API keys?" | `trace-scrub` | Finds keys and tokens in Claude Code, Codex, Gemini CLI, OpenCode, Cline/Roo and Aider session logs; redacts them in place if you say yes |
 | "Where are my OpenAI / Anthropic keys stored?" | `ai-key-map` | Every copy of every AI provider key on the machine, grouped by fingerprint, plus a rotation checklist |
+| "Run this, but only let it reach PyPI." | `egress-lock` | Runs a command with outbound network limited to an allowlist and logs every attempt; enforced by the OS on macOS. Cloud metadata always blocked |
 | "What could the agent delete if I leave it running?" | `blastmap` (skill: blast-check) | Permission modes, logged-in cloud/kube CLIs, token scopes, publish tokens, SSH keys, Docker socket, mounted shares, then the smallest fixes |
 | "Is this plugin safe to install?" | `mod-audit` | Static map of what a Claude Code plugin hooks, runs, reads, writes and contacts; lockfile + upgrade diff |
 | "Does this page hide instructions for AI?" | `cloak-diff` | Text people can't see but agents read (hidden prompt injection), crawler-only content |
@@ -66,9 +67,9 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 - **Offline and read-only by default.** Nothing is sent anywhere. Changes (redacting a log, killing a process, installing a hook) happen only after you say yes; the skills tell Claude to ask.
 - **Secret values are never printed.** Keys show as a masked prefix plus a fingerprint, so copies can be matched without revealing them.
 - **No hooks are installed by the plugin.** Two skills (`outbound-check`, `overnight-preflight`) can print a hook snippet for you to add if you want enforcement.
-- About 1.6K tokens are added to every session for the 16 skill descriptions (measured with `claude plugin details`); a skill's full instructions load only when it is used.
+- About 1.7K tokens are added to every session for the 17 skill descriptions (measured with `claude plugin details`); a skill's full instructions load only when it is used.
 
-Requirements: Claude Code, Node 18+ (12 skills), Python 3.8+ (`agent-ps`, `cheat-drill`, `port-verify`, `readme-walk`). macOS and Linux; Windows is untested.
+Requirements: Claude Code, Node 18+ (13 skills), Python 3.8+ (`agent-ps`, `cheat-drill`, `port-verify`, `readme-walk`). macOS and Linux; Windows is untested.
 
 ## Without Claude Code
 
@@ -79,9 +80,9 @@ git clone https://github.com/thinx-pro/agent-preflight
 node agent-preflight/plugins/trace-scrub/skills/trace-scrub/tool/bin/trace-scrub.js --help
 ```
 
-Each tool also has its own repository with full docs: [trace-scrub](https://github.com/thinx-pro/trace-scrub), [ai-key-map](https://github.com/thinx-pro/ai-key-map), [blastmap](https://github.com/thinx-pro/blastmap), [mod-audit](https://github.com/thinx-pro/mod-audit), [cloak-diff](https://github.com/thinx-pro/cloak-diff), [agent-trail](https://github.com/thinx-pro/agent-trail), [cost-cliff](https://github.com/thinx-pro/cost-cliff), [token-blame](https://github.com/thinx-pro/token-blame), [nightcap](https://github.com/thinx-pro/nightcap), [agent-ps](https://github.com/thinx-pro/agent-ps), [fail-first](https://github.com/thinx-pro/fail-first), [cheat-drill](https://github.com/thinx-pro/cheat-drill), [port-diff](https://github.com/thinx-pro/port-diff), [readme-walk](https://github.com/thinx-pro/readme-walk), [toolcall-smoke](https://github.com/thinx-pro/toolcall-smoke), [model-census](https://github.com/thinx-pro/model-census).
+Each tool also has its own repository with full docs: [trace-scrub](https://github.com/thinx-pro/trace-scrub), [egress-lock](https://github.com/thinx-pro/egress-lock), [ai-key-map](https://github.com/thinx-pro/ai-key-map), [blastmap](https://github.com/thinx-pro/blastmap), [mod-audit](https://github.com/thinx-pro/mod-audit), [cloak-diff](https://github.com/thinx-pro/cloak-diff), [agent-trail](https://github.com/thinx-pro/agent-trail), [cost-cliff](https://github.com/thinx-pro/cost-cliff), [token-blame](https://github.com/thinx-pro/token-blame), [nightcap](https://github.com/thinx-pro/nightcap), [agent-ps](https://github.com/thinx-pro/agent-ps), [fail-first](https://github.com/thinx-pro/fail-first), [cheat-drill](https://github.com/thinx-pro/cheat-drill), [port-diff](https://github.com/thinx-pro/port-diff), [readme-walk](https://github.com/thinx-pro/readme-walk), [toolcall-smoke](https://github.com/thinx-pro/toolcall-smoke), [model-census](https://github.com/thinx-pro/model-census).
 
-Browser tools from the same author: [trust-threshold](https://thinx-pro.github.io/trust-threshold/) (confidence thresholds for model routing), [agent-search-costs](https://thinx-pro.github.io/agent-search-costs/) (search API price calculator).
+More from the same author: [pythonic-skills](https://github.com/thinx-pro/pythonic-skills) (skills that make agents write and review robust Python, measured with and without), [trust-threshold](https://thinx-pro.github.io/trust-threshold/) (confidence thresholds for model routing), [agent-search-costs](https://thinx-pro.github.io/agent-search-costs/) (search API price calculator).
 
 ## Testing
 
@@ -89,7 +90,7 @@ Browser tools from the same author: [trust-threshold](https://thinx-pro.github.i
 node test/smoke.mjs
 ```
 
-Runs every bundled tool on a small fixture with a known answer (a planted fake token, a hidden instruction, a real regression test, …) plus five negative controls that must *not* be flagged. Pass a path to test an installed copy, e.g. the plugin cache folder.
+Runs every bundled tool on a small fixture with a known answer (a planted fake token, a hidden instruction, a real regression test, …) plus negative controls that must *not* be flagged (23 checks in all). Pass a path to test an installed copy, e.g. the plugin cache folder.
 
 ## Limits
 

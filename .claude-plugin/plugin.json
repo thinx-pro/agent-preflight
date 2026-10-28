@@ -1,7 +1,7 @@
 {
   "name": "all",
   "version": "0.1.0",
-  "description": "All 16 agent-preflight skills in one install",
+  "description": "All 17 agent-preflight skills in one install",
   "author": {
     "name": "thinx-pro",
     "url": "https://github.com/thinx-pro"
@@ -22,6 +22,7 @@
     "./plugins/blastmap/skills",
     "./plugins/mod-audit/skills",
     "./plugins/cloak-diff/skills",
+    "./plugins/egress-lock/skills",
     "./plugins/agent-trail/skills",
     "./plugins/cost-cliff/skills",
     "./plugins/token-blame/skills",

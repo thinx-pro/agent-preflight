@@ -1,0 +1,17 @@
+{
+  "name": "egress-lock",
+  "version": "0.1.0",
+  "description": "Run an agent, local model or install script with outbound network limited to an allowlist; every attempt logged",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/egress-lock",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "egress",
+    "allowlist",
+    "exfiltration"
+  ]
+}

@@ -12,7 +12,7 @@
     {
       "name": "all",
       "source": "./",
-      "description": "All 16 skills below in one install",
+      "description": "All 17 skills below in one install",
       "version": "0.1.0",
       "category": "bundle"
     },
@@ -74,6 +74,18 @@
         "prompt-injection",
         "web",
         "scraping"
+      ]
+    },
+    {
+      "name": "egress-lock",
+      "source": "./plugins/egress-lock",
+      "description": "Run an agent, local model or install script with outbound network limited to an allowlist; every attempt logged",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "egress",
+        "allowlist",
+        "exfiltration"
       ]
     },
     {

@@ -150,7 +150,24 @@ check('model-census finds a DeepSeek model and fails --deny', () => {
   return r.code === 1 && /deepseek/i.test(r.out);
 });
 
+check('egress-lock refuses and logs a host that is not allowed', () => {
+  const log = path.join(tmp, 'egress-deny.jsonl');
+  const r = run('node', [nodeBin('egress-lock'), '--no-upstream', '-q', '--log', log, '--',
+    'curl', '-s', '-o', '/dev/null', '-w', '%{http_code}', 'http://blocked.example/']);
+  const ev = fs.readFileSync(log, 'utf8').trim().split('\n').map((l) => JSON.parse(l));
+  return r.out.trim() === '403' && ev.length === 1 && ev[0].host === 'blocked.example' && ev[0].allowed === false;
+});
+
 // Negative controls: clean inputs must not be flagged, a vacuous test must not pass.
+check('control: egress-lock lets an allowed host through the proxy', () => {
+  const log = path.join(tmp, 'egress-allow.jsonl');
+  // The host doesn't resolve, so the proxy answers 502 after letting it through: not a 403.
+  const r = run('node', [nodeBin('egress-lock'), '--no-upstream', '-q', '--allow', 'blocked.example', '--log', log, '--',
+    'curl', '-s', '-o', '/dev/null', '-w', '%{http_code}', 'http://blocked.example/']);
+  const ev = fs.readFileSync(log, 'utf8').trim().split('\n').map((l) => JSON.parse(l));
+  return r.out.trim() !== '403' && ev[0].allowed === true;
+});
+
 check('control: trace-scrub on a clean home finds nothing', () => {
   const home = path.join(tmp, 'home-clean');
   fs.mkdirSync(path.join(home, '.claude/projects/demo'), { recursive: true });
