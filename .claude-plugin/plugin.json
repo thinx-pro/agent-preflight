@@ -1,7 +1,7 @@
 {
   "name": "all",
-  "version": "0.1.0",
-  "description": "All 17 agent-preflight skills in one install",
+  "version": "0.2.0",
+  "description": "All 20 agent-preflight skills in one install",
   "author": {
     "name": "thinx-pro",
     "url": "https://github.com/thinx-pro"
@@ -33,6 +33,9 @@
     "./plugins/port-diff/skills",
     "./plugins/readme-walk/skills",
     "./plugins/toolcall-smoke/skills",
-    "./plugins/model-census/skills"
+    "./plugins/model-census/skills",
+    "./plugins/cite-cut/skills",
+    "./plugins/release-window/skills",
+    "./plugins/eval-pairs/skills"
   ]
 }

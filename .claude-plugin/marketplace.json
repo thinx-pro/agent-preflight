@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Pre-flight checks for coding agents: leaked secrets, blast radius, costs, runaway processes, cheating tests. Offline, zero dependencies.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "all",
       "source": "./",
-      "description": "All 17 skills below in one install",
-      "version": "0.1.0",
+      "description": "All 20 skills below in one install",
+      "version": "0.2.0",
       "category": "bundle"
     },
     {
@@ -218,6 +218,42 @@
         "model-inventory",
         "compliance",
         "ai-bom"
+      ]
+    },
+    {
+      "name": "cite-cut",
+      "source": "./plugins/cite-cut",
+      "description": "Give an agent bounded, line-numbered source excerpts instead of an entire file.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": [
+        "agents",
+        "offline",
+        "productivity"
+      ]
+    },
+    {
+      "name": "release-window",
+      "source": "./plugins/release-window",
+      "description": "Recover a dated release digest from archived GitHub JSON, without inventing historical trends.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": [
+        "agents",
+        "offline",
+        "productivity"
+      ]
+    },
+    {
+      "name": "eval-pairs",
+      "source": "./plugins/eval-pairs",
+      "description": "See which evaluation cases regressed, even when the average score stayed the same.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": [
+        "agents",
+        "offline",
+        "productivity"
       ]
     }
   ]

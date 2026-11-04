@@ -207,6 +207,37 @@ check('control: port-diff catches a behavior change', () => {
   return r.code === 1;
 });
 
+
+check('cite-cut keeps qualifying context and provenance', () => {
+  const f=write('cite-notes.md','CUDA changed\nOnly for supported drivers\n');
+  const r=run('node',[nodeBin('cite-cut'),f,'--query','CUDA','--json']);
+  const j=JSON.parse(r.out);return r.code===0&&j.includedMatches===1&&j.markdown.includes('2: Only for supported drivers');
+});
+check('control: cite-cut does not fabricate a missing match', () => {
+  const f=write('cite-clean.md','ordinary text');
+  const r=run('node',[nodeBin('cite-cut'),f,'--query','absent','--json']);
+  return r.code===1&&JSON.parse(r.out).matchCount===0;
+});
+check('release-window respects Shanghai midnight', () => {
+  const f=write('release.json',JSON.stringify({tag_name:'v1',published_at:'2026-11-01T23:52:00Z',html_url:'https://github.com/example/tool/releases/tag/v1',prerelease:false}));
+  const r=run('node',[nodeBin('release-window'),f,'--from','2026-11-02','--to','2026-11-02','--timezone','Asia/Shanghai','--json']);
+  return r.code===0&&JSON.parse(r.out).releaseCount===1;
+});
+check('control: release-window excludes out-of-window records', () => {
+  const r=run('node',[nodeBin('release-window'),path.join(tmp,'release.json'),'--from','2026-11-03','--to','2026-11-03','--json']);
+  return r.code===0&&JSON.parse(r.out).releaseCount===0;
+});
+check('eval-pairs catches regression hidden by unchanged mean', () => {
+  const b=write('eval-before.jsonl','{"id":"a","score":1}\n{"id":"b","score":0}\n');
+  const a=write('eval-after.jsonl','{"id":"a","score":0}\n{"id":"b","score":1}\n');
+  const r=run('node',[nodeBin('eval-pairs'),b,a,'--json']);const j=JSON.parse(r.out);
+  return r.code===1&&j.summary.regressed===1&&j.summary.meanBefore===j.summary.meanAfter;
+});
+check('control: eval-pairs accepts identical evaluations', () => {
+  const f=path.join(tmp,'eval-before.jsonl');const r=run('node',[nodeBin('eval-pairs'),f,f,'--json']);
+  return r.code===0&&JSON.parse(r.out).summary.regressed===0;
+});
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

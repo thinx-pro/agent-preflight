@@ -1,0 +1,17 @@
+{
+  "name": "release-window",
+  "version": "0.1.0",
+  "description": "Recover a dated release digest from archived GitHub JSON, without inventing historical trends.",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/release-window",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "offline",
+    "productivity"
+  ]
+}

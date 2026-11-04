@@ -1,0 +1,1 @@
+{"name":"eval-pairs","version":"0.1.0","type":"module","private":true,"description":"Case-aligned JSONL evaluation comparisons without a server","bin":{"eval-pairs":"bin/eval-pairs.js"},"scripts":{"test":"node --test"},"engines":{"node":">=18"},"license":"MIT"}

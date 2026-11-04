@@ -1,0 +1,17 @@
+{
+  "name": "cite-cut",
+  "version": "0.1.0",
+  "description": "Give an agent bounded, line-numbered source excerpts instead of an entire file.",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/cite-cut",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "offline",
+    "productivity"
+  ]
+}
