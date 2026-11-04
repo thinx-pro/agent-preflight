@@ -87,7 +87,7 @@ node agent-preflight/plugins/trace-scrub/skills/trace-scrub/tool/bin/trace-scrub
 
 Each tool also has its own repository with full docs: [trace-scrub](https://github.com/thinx-pro/trace-scrub), [egress-lock](https://github.com/thinx-pro/egress-lock), [ai-key-map](https://github.com/thinx-pro/ai-key-map), [blastmap](https://github.com/thinx-pro/blastmap), [mod-audit](https://github.com/thinx-pro/mod-audit), [cloak-diff](https://github.com/thinx-pro/cloak-diff), [agent-trail](https://github.com/thinx-pro/agent-trail), [cost-cliff](https://github.com/thinx-pro/cost-cliff), [token-blame](https://github.com/thinx-pro/token-blame), [nightcap](https://github.com/thinx-pro/nightcap), [agent-ps](https://github.com/thinx-pro/agent-ps), [fail-first](https://github.com/thinx-pro/fail-first), [cheat-drill](https://github.com/thinx-pro/cheat-drill), [port-diff](https://github.com/thinx-pro/port-diff), [readme-walk](https://github.com/thinx-pro/readme-walk), [toolcall-smoke](https://github.com/thinx-pro/toolcall-smoke), [model-census](https://github.com/thinx-pro/model-census).
 
-New standalone tools: [cite-cut](https://github.com/thinx-pro/cite-cut), [release-window](https://github.com/thinx-pro/release-window), [eval-pairs](https://github.com/thinx-pro/eval-pairs).
+Research and evaluation tools in this repository: [cite-cut](https://github.com/thinx-pro/agent-preflight/tree/main/plugins/cite-cut), [release-window](https://github.com/thinx-pro/agent-preflight/tree/main/plugins/release-window), [eval-pairs](https://github.com/thinx-pro/agent-preflight/tree/main/plugins/eval-pairs).
 
 More from the same author: [pythonic-skills](https://github.com/thinx-pro/pythonic-skills) (skills that make agents write and review robust Python, measured with and without), [trust-threshold](https://thinx-pro.github.io/trust-threshold/) (confidence thresholds for model routing), [agent-search-costs](https://thinx-pro.github.io/agent-search-costs/) (search API price calculator).
 
@@ -109,3 +109,7 @@ Runs every bundled tool on a small fixture with a known answer (a planted fake t
 ## License
 
 MIT
+
+## Repository organization
+
+New daily tools live in this repository. Each tool includes its runtime, README, examples and tests under `plugins/<name>/skills/<name>/tool/`. No separate tool repository is required. Run a tool from that directory with Node 18+.
