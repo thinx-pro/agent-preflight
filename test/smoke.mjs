@@ -238,6 +238,32 @@ check('control: eval-pairs accepts identical evaluations', () => {
   return r.code===0&&JSON.parse(r.out).summary.regressed===0;
 });
 
+check('commit-scope finds a committed out-of-plan path in a clean linked worktree', () => {
+ const tool = path.dirname(path.dirname(nodeBin('commit-scope')));
+ const r = run('node', [path.join(tool, 'examples', 'demo.mjs'), '--json']);
+ const j = JSON.parse(r.out.slice(0, r.out.indexOf('\n')));
+ return r.code === 1 && r.out.includes('git status --porcelain: (empty)')
+  && j.changed === 2 && j.outOfScope === 1
+  && j.changes.some(row => row.path === 'docs/roadmap.md' && !row.allowed);
+});
+check('control: commit-scope accepts an in-scope committed change', () => {
+ const tool = path.dirname(path.dirname(nodeBin('commit-scope')));
+ const r = run('node', [path.join(tool, 'examples', 'demo.mjs'), '--control', '--json']);
+ const j = JSON.parse(r.out.slice(0, r.out.indexOf('\n')));
+ return r.code === 0 && j.changed === 1 && j.outOfScope === 0;
+});
+
+for (const [args, code, expected] of [
+  [[], 1, 'Worktree mismatch'],
+  [['--control'], 0, 'Worktree matches'],
+]) {
+  check('commit-scope resume: ' + expected, () => {
+    const tool = path.dirname(path.dirname(nodeBin('commit-scope')));
+    const r = run('node', [path.join(tool, 'examples/demo.mjs'), '--resume', ...args]);
+    return r.code === code && r.out.includes(expected);
+  });
+}
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

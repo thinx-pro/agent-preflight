@@ -1,0 +1,17 @@
+{
+  "name": "commit-scope",
+  "version": "0.1.1",
+  "description": "Check the resumed Git worktree and the paths changed by a coding agent",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/commit-scope",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "git",
+    "worktree",
+    "scope"
+  ]
+}

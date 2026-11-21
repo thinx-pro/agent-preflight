@@ -1,0 +1,10 @@
+{
+  "name": "commit-scope",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "bin": { "commit-scope": "bin/commit-scope.js" },
+  "scripts": { "test": "node --test test/*.test.js" },
+  "engines": { "node": ">=18.3" }
+}

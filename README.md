@@ -1,10 +1,10 @@
 # agent-preflight
 
-**20 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
+**21 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
 
 Install once in Claude Code, then just ask: *"did my agent log any of my API keys?"*
 
-![skills 20](https://img.shields.io/badge/skills-20-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
+![skills 21](https://img.shields.io/badge/skills-21-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
 
 ![trace-scrub finding leaked keys in agent session logs](assets/trace-scrub.png)
 
@@ -25,7 +25,7 @@ Then install **just the skills you want**, one plugin per skill (names in the ta
 /plugin install cost-cliff@agent-preflight
 ```
 
-or **all 20 at once**:
+or **all 21 at once**:
 
 ```
 /plugin install all@agent-preflight
@@ -58,6 +58,7 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 | "Is the Rust port equivalent to the old one?" | `port-diff` (skill: port-verify) | Runs old and new on the same inputs, normalizes noise, grades BREAK / DIFF / SAME |
 | "Walk through this README like a new user." | `readme-walk` | Follows the README literally in a clean copy and writes a friction log |
 | **Models** | | |
+| "Did the agent commit files outside the plan?" | `commit-scope` | Checks the resumed worktree before editing and the agreed paths after delivery. [Try the demo](plugins/commit-scope/skills/commit-scope/tool/README.md). |
 | "Does my local model do tool calls properly?" | `toolcall-smoke` | 20 tool-calling cases against Ollama, llama.cpp, LM Studio, vLLM or any OpenAI-compatible server |
 | "Do we use DeepSeek anywhere?" | `model-census` | Model ids, endpoints and SDKs in a codebase, mapped to whose weights they're built on; CI deny gate, CycloneDX |
 
@@ -74,7 +75,7 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 - **No hooks are installed by the plugin.** Two skills (`outbound-check`, `overnight-preflight`) can print a hook snippet for you to add if you want enforcement.
 - A skill's full instructions load only when it is used; description overhead depends on the client.
 
-Requirements: Claude Code, Node 18+ (16 skills), Python 3.8+ (`agent-ps`, `cheat-drill`, `port-verify`, `readme-walk`). macOS and Linux; Windows is untested.
+Requirements: Claude Code, Node 18+ (17 skills), Python 3.8+ (`agent-ps`, `cheat-drill`, `port-verify`, `readme-walk`). macOS and Linux; Windows is untested.
 
 ## Without Claude Code
 
