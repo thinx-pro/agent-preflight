@@ -264,6 +264,17 @@ for (const [args, code, expected] of [
   });
 }
 
+for (const [budget, code, shortfall] of [[1023, 1, 1], [1024, 0, 0]]) {
+  check('shard-budget with ' + budget + ' bytes', () => {
+    const bin = nodeBin('shard-budget');
+    const examples = path.resolve(path.dirname(bin), '../examples');
+    const r = run('node', [bin, path.join(examples, 'info.json'), path.join(examples, 'index.json'),
+      '--budget-bytes', String(budget)]);
+    const result = JSON.parse(r.out);
+    return r.code === code && result.shardBytes === 1024 && result.shortfallBytes === shortfall;
+  });
+}
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

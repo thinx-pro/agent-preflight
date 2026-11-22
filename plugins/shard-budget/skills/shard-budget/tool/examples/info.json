@@ -1,0 +1,22 @@
+{
+  "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "siblings": [
+    {
+      "rfilename": "model.safetensors.index.json",
+      "size": 92,
+      "blobId": "a4b1eefcf9d335ef612ee8fffc4c77764e801da9"
+    },
+    {
+      "rfilename": "part-a.safetensors",
+      "size": 640
+    },
+    {
+      "rfilename": "part-b.safetensors",
+      "size": 384
+    },
+    {
+      "rfilename": "unrelated.safetensors",
+      "size": 1200
+    }
+  ]
+}

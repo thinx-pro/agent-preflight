@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Pre-flight checks for coding agents: leaked secrets, blast radius, costs, runaway processes, cheating tests. Offline, zero dependencies.",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "plugins": [
     {
       "name": "all",
       "source": "./",
-      "description": "All 21 skills below in one install",
-      "version": "0.2.1",
+      "description": "All 22 skills below in one install",
+      "version": "0.2.2",
       "category": "bundle"
     },
     {
@@ -266,6 +266,18 @@
         "git",
         "worktree",
         "scope"
+      ]
+    },
+    {
+      "name": "shard-budget",
+      "source": "./plugins/shard-budget",
+      "version": "0.1.0",
+      "description": "Count unique Hugging Face weight shard bytes against a disk budget",
+      "category": "models",
+      "keywords": [
+        "hugging-face",
+        "disk",
+        "local-models"
       ]
     }
   ]

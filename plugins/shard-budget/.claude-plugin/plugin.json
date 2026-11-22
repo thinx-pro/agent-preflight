@@ -1,0 +1,17 @@
+{
+  "name": "shard-budget",
+  "version": "0.1.0",
+  "description": "Count unique Hugging Face weight shard bytes against a disk budget",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/shard-budget",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "hugging-face",
+    "disk",
+    "local-models"
+  ]
+}

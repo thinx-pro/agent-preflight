@@ -1,10 +1,10 @@
 # agent-preflight
 
-**21 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
+**22 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
 
 Install once in Claude Code, then just ask: *"did my agent log any of my API keys?"*
 
-![skills 21](https://img.shields.io/badge/skills-21-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
+![skills 22](https://img.shields.io/badge/skills-22-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
 
 ![trace-scrub finding leaked keys in agent session logs](assets/trace-scrub.png)
 
@@ -25,7 +25,7 @@ Then install **just the skills you want**, one plugin per skill (names in the ta
 /plugin install cost-cliff@agent-preflight
 ```
 
-or **all 21 at once**:
+or **all 22 at once**:
 
 ```
 /plugin install all@agent-preflight
@@ -60,6 +60,7 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 | **Models** | | |
 | "Did the agent commit files outside the plan?" | `commit-scope` | Checks the resumed worktree before editing and the agreed paths after delivery. [Try the demo](plugins/commit-scope/skills/commit-scope/tool/README.md). |
 | "Does my local model do tool calls properly?" | `toolcall-smoke` | 20 tool-calling cases against Ollama, llama.cpp, LM Studio, vLLM or any OpenAI-compatible server |
+| "How much disk for these model shards?" | [shard-budget](plugins/shard-budget) | Count unique indexed weight bytes before downloading |
 | "Do we use DeepSeek anywhere?" | `model-census` | Model ids, endpoints and SDKs in a codebase, mapped to whose weights they're built on; CI deny gate, CycloneDX |
 
 | **Research & evaluation** | | |
