@@ -1,0 +1,17 @@
+{
+  "name": "loop-placement",
+  "version": "0.1.0",
+  "description": "Count device transitions across a repeated decoder core",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/loop-placement",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "local-models",
+    "gpu",
+    "placement"
+  ]
+}

@@ -275,6 +275,16 @@ for (const [budget, code, shortfall] of [[1023, 1, 1], [1024, 0, 0]]) {
   });
 }
 
+for (const [layout, total, returns] of [['split', 5, 2], ['colocated', 2, 0]]) {
+  check('loop-placement: ' + layout, () => {
+    const bin = nodeBin('loop-placement');
+    const plan = path.resolve(path.dirname(bin), '../examples', layout + '.json');
+    const result = run('node', [bin, plan]);
+    const counts = JSON.parse(result.out);
+    return result.code === 0 && counts.total === total && counts.betweenPasses === returns;
+  });
+}
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

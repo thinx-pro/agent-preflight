@@ -1,7 +1,7 @@
 {
   "name": "all",
-  "version": "0.2.2",
-  "description": "All 22 agent-preflight skills in one install",
+  "version": "0.2.3",
+  "description": "All 23 agent-preflight skills in one install",
   "author": {
     "name": "thinx-pro",
     "url": "https://github.com/thinx-pro"
@@ -38,6 +38,7 @@
     "./plugins/release-window/skills",
     "./plugins/eval-pairs/skills",
     "./plugins/commit-scope/skills",
-    "./plugins/shard-budget/skills"
+    "./plugins/shard-budget/skills",
+    "./plugins/loop-placement/skills"
   ]
 }
