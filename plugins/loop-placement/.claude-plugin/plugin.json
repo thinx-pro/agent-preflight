@@ -1,7 +1,7 @@
 {
   "name": "loop-placement",
-  "version": "0.1.0",
-  "description": "Count device transitions across a repeated decoder core",
+  "version": "0.1.1",
+  "description": "Compare looped decoder layer splits and read llama.cpp model and KV buffer allocations",
   "author": {
     "name": "thinx-pro",
     "url": "https://github.com/thinx-pro"

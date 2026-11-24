@@ -1,0 +1,4 @@
+load_tensors: Vulkan0 model buffer size = 640.50 MiB
+load_tensors: Vulkan1 model buffer size = 512 MiB
+llama_kv_cache: Vulkan1 KV buffer size = 32 MiB
+llama_kv_cache: Vulkan1 KV buffer size = 8 MiB

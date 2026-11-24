@@ -283,8 +283,8 @@
     {
       "name": "loop-placement",
       "source": "./plugins/loop-placement",
-      "description": "Count device transitions across a repeated decoder core",
-      "version": "0.1.0",
+      "description": "Compare looped decoder layer splits and read llama.cpp model and KV buffer allocations",
+      "version": "0.1.1",
       "category": "models",
       "keywords": [
         "local-models",

@@ -285,6 +285,21 @@ for (const [layout, total, returns] of [['split', 5, 2], ['colocated', 2, 0]]) {
   });
 }
 
+check('loop-placement preserves split KV allocations and unobserved buffers', () => {
+  const bin = nodeBin('loop-placement');
+  const example = path.resolve(path.dirname(bin), '../examples/buffers.txt');
+  const result = run('node', [bin, '--buffers', example]);
+  const [first, second] = JSON.parse(result.out).devices;
+  return result.code === 0 && first.modelMiB[0] === 640.5 && first.kvMiB.length === 0 &&
+    second.kvMiB.join(',') === '32,8';
+});
+
+check('loop-placement refuses logs without allocation records', () => {
+  const bin = nodeBin('loop-placement');
+  const example = path.resolve(path.dirname(bin), '../examples/split.json');
+  return run('node', [bin, '--buffers', example]).code === 2;
+});
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;
