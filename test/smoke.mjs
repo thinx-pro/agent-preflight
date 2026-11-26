@@ -300,6 +300,25 @@ check('loop-placement refuses logs without allocation records', () => {
   return run('node', [bin, '--buffers', example]).code === 2;
 });
 
+check('loop-placement memory mode preserves compute and output reservations', () => {
+  const bin = nodeBin('loop-placement');
+  const example = path.resolve(path.dirname(bin), '../examples/buffers.txt');
+  const result = run('node', [bin, '--memory', example]);
+  const rows = JSON.parse(result.out).devices;
+  const gpu = rows.find(row => row.device === 'Vulkan1');
+  const host = rows.find(row => row.device === 'CPU');
+  return result.code === 0 && gpu.computeMiB.join(',') === '120.25,128.5' &&
+    gpu.outputMiB.length === 0 && host.outputMiB.join(',') === '0.58';
+});
+
+check('loop-placement legacy memory schema omits extended fields', () => {
+  const bin = nodeBin('loop-placement');
+  const example = path.resolve(path.dirname(bin), '../examples/buffers.txt');
+  const result = run('node', [bin, '--buffers', example]);
+  return result.code === 0 && JSON.parse(result.out).devices.every(row =>
+    Object.keys(row).sort().join(',') === 'device,kvMiB,modelMiB');
+});
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

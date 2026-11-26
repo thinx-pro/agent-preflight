@@ -26,3 +26,31 @@ for (const log of ['', weights, cache, weights + '\n' + cache + '\n' + cache.rep
     assert.throws(() => readBuffers(log));
   });
 }
+
+test('extended mode reads old and new compute prefixes and preserves repeated reservations', () => {
+  const lines = [
+    weights, cache, 'llama_context: CPU output buffer size = 0.58 MiB',
+    'llama_context: Vulkan1 compute buffer size = 120.25 MiB',
+    '0.02.12 I sched_reserve: Vulkan1 compute buffer size = 128.50 MiB',
+    'llama_context: Vulkan1 compute buffer size is 128.50 MiB, matches expectation',
+    'ggml_gallocr_reserve_n_impl: failed to allocate Vulkan1 buffer of size 65432'
+  ];
+  assert.deepEqual(readBuffers(lines.join('\n'), { extended: true }).devices, [
+    { device: 'Vulkan0', modelMiB: [15.25], kvMiB: [], computeMiB: [], outputMiB: [] },
+    { device: 'Vulkan1', modelMiB: [], kvMiB: [4], computeMiB: [120.25, 128.5], outputMiB: [] },
+    { device: 'CPU', modelMiB: [], kvMiB: [], computeMiB: [], outputMiB: [0.58] }
+  ]);
+  assert.deepEqual(readBuffers(lines.join('\n')), readBuffers([weights, cache].join('\n')));
+});
+
+test('extended mode allows partial logs while distinguishing a reported zero', () => {
+  const line = 'sched_reserve: Vulkan1 compute buffer size = 0 MiB';
+  assert.deepEqual(readBuffers(line, { extended: true }).devices, [
+    { device: 'Vulkan1', modelMiB: [], kvMiB: [], computeMiB: [0], outputMiB: [] }
+  ]);
+});
+
+test('extended mode rejects logs without reservations or with unsupported sizes', () => {
+  assert.throws(() => readBuffers('llama_context: failed to allocate compute pp buffers', { extended: true }));
+  assert.throws(() => readBuffers('sched_reserve: Vulkan1 compute buffer size = 1 GiB', { extended: true }), /line 1/);
+});

@@ -1,6 +1,6 @@
 # loop-placement
 
-Count device changes between consecutive decoder-layer executions when a block of layers repeats, and inspect the model and KV buffers reported by llama.cpp.
+Count device changes between consecutive decoder-layer executions when a block of layers repeats, and inspect startup memory buffers reported by llama.cpp, including compute and output reservations.
 
 ![Node 18+](https://img.shields.io/badge/node-18%2B-green) ![MIT](https://img.shields.io/badge/license-MIT-blue)
 
@@ -20,7 +20,7 @@ From this directory with Node 18+, compare the two synthetic plans:
 ```sh
 node bin/loop-placement.js examples/split.json
 node bin/loop-placement.js examples/colocated.json
-node bin/loop-placement.js --buffers examples/buffers.txt
+node bin/loop-placement.js --memory examples/buffers.txt
 ```
 
 Read `total` for each plan. Run `npm test` to check the calculation against explicit execution traces.
@@ -36,6 +36,14 @@ The calculation visits every adjacent physical layer once, weights boundaries in
 Use `--buffers STARTUP.log` on a single llama.cpp startup. The command groups MiB records from `load_tensors` (model) and `llama_kv_cache` (KV) by backend. In the synthetic example Vulkan0 reports 640.5 MiB of model buffers and no KV line. Vulkan1 reports 512 MiB of model buffers and two KV records of 32 and 8 MiB. A reported zero appears as `[0]`; an empty array means no matching line. Separate entries preserve distinct cache allocations.
 
 Both record kinds must appear somewhere in the input. Unsupported sizes on recognized allocation lines exit 2. The reader supports the plain and elapsed-time-prefixed formats exercised here. Filter to one startup yourself. Truncated logs and other logger formats may omit records. These rows cannot identify a layer, establish simultaneous residency or measure traffic. See the [mixed-GPU startup report](https://github.com/ggml-org/llama.cpp/issues/32785).
+
+## Diagnose compute and output reservations
+
+Use `--memory STARTUP.log` to add `computeMiB` and `outputMiB` arrays. The reader recognizes `llama_context` and `sched_reserve` reservation lines. It ignores teardown comparisons and failed allocation attempts. The example shows two compute reservations on Vulkan1 and reports output memory separately on CPU. Each array contains the logger's original numbers in order.
+
+`--memory` accepts a partial startup log with at least one allocation record. Empty arrays show where the log has no matching lines. The tool keeps records separate because repeated reservations can overlap or replace one another. It does not calculate peak VRAM. Use `--buffers` for the original model/KV JSON schema and the requirement that both record kinds appear.
+
+In [llama.cpp #33040](https://github.com/ggml-org/llama.cpp/issues/33040), a dual-GPU user's weight placement could fit while compute buffer allocation still failed. Earlier examples show the [llama_context](https://github.com/ggml-org/llama.cpp/issues/18181) and [sched_reserve](https://github.com/ggml-org/llama.cpp/discussions/20252) formats.
 
 ## Limits and roadmap
 

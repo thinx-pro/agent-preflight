@@ -283,8 +283,8 @@
     {
       "name": "loop-placement",
       "source": "./plugins/loop-placement",
-      "description": "Compare looped decoder layer splits and read llama.cpp model and KV buffer allocations",
-      "version": "0.1.1",
+      "description": "Compare looped decoder layer splits and read llama.cpp startup memory reservations",
+      "version": "0.1.2",
       "category": "models",
       "keywords": [
         "local-models",
