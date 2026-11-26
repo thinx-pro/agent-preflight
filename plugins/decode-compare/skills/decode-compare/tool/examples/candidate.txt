@@ -1,0 +1,3 @@
+Generation 108.29s
+Speed 27.6 tok/s
+Tokens 2,993

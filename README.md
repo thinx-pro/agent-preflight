@@ -1,10 +1,10 @@
 # agent-preflight
 
-**23 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
+**24 skills that check the things your coding agent won't check for itself:** API keys sitting in its session logs, what it could delete from this shell, which hosts it may reach, what a plugin can do before you install it, what your sessions really cost, tests that pass without your fix, processes it left running overnight.
 
 Install once in Claude Code, then just ask: *"did my agent log any of my API keys?"*
 
-![skills 23](https://img.shields.io/badge/skills-23-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
+![skills 24](https://img.shields.io/badge/skills-24-3f8f5a) ![offline](https://img.shields.io/badge/runs-offline-3f8f5a) ![zero dependencies](https://img.shields.io/badge/dependencies-0-3f8f5a) ![license MIT](https://img.shields.io/badge/license-MIT-blue)
 
 ![trace-scrub finding leaked keys in agent session logs](assets/trace-scrub.png)
 
@@ -25,7 +25,7 @@ Then install **just the skills you want**, one plugin per skill (names in the ta
 /plugin install cost-cliff@agent-preflight
 ```
 
-or **all 23 at once**:
+or **all 24 at once**:
 
 ```
 /plugin install all@agent-preflight
@@ -39,6 +39,7 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 
 | Ask Claude… | Install name | What it does |
 |---|---|---|
+| Why did the higher tok/s run finish later? | [decode-compare](plugins/decode-compare) | Compare saved generation times, rates and output lengths. |
 | **Secrets & access** | | |
 | "Did my agent log any of my API keys?" | `trace-scrub` | Finds keys and tokens in Claude Code, Codex, Gemini CLI, OpenCode, Cline/Roo and Aider session logs; redacts them in place if you say yes |
 | "Where are my OpenAI / Anthropic keys stored?" | `ai-key-map` | Every copy of every AI provider key on the machine, grouped by fingerprint, plus a rotation checklist |

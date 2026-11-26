@@ -319,6 +319,17 @@ check('loop-placement legacy memory schema omits extended fields', () => {
     Object.keys(row).sort().join(',') === 'device,kvMiB,modelMiB');
 });
 
+for (const [other, expectedDelta] of [['candidate', 1133], ['baseline', 0]]) {
+  check('decode-compare: ' + other, () => {
+    const bin = nodeBin('decode-compare');
+    const example = name => path.resolve(path.dirname(bin), '../examples', name + '.txt');
+    const result = run('node', [bin, example('baseline'), example(other)]);
+    const report = JSON.parse(result.out);
+    return result.code === 0 && report.outputTokensDelta === expectedDelta &&
+      report.rateTimeReversal === (expectedDelta > 0);
+  });
+}
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

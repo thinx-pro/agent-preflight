@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Pre-flight checks for coding agents: leaked secrets, blast radius, costs, runaway processes, cheating tests. Offline, zero dependencies.",
-    "version": "0.2.3"
+    "version": "0.2.4"
   },
   "plugins": [
     {
       "name": "all",
       "source": "./",
-      "description": "All 23 skills below in one install",
-      "version": "0.2.3",
+      "description": "All 24 skills below in one install",
+      "version": "0.2.4",
       "category": "bundle"
     },
     {
@@ -290,6 +290,18 @@
         "local-models",
         "gpu",
         "placement"
+      ]
+    },
+    {
+      "name": "decode-compare",
+      "source": "./plugins/decode-compare",
+      "description": "Compare generation time and token rate across two saved local model runs",
+      "version": "0.1.0",
+      "category": "models",
+      "keywords": [
+        "local-models",
+        "latency",
+        "inference"
       ]
     }
   ]
