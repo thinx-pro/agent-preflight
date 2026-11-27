@@ -330,6 +330,17 @@ for (const [other, expectedDelta] of [['candidate', 1133], ['baseline', 0]]) {
   });
 }
 
+for (const [example, code] of [['changed', 1], ['clean', 0]]) {
+  check('page-retry: ' + example, () => {
+    const bin = nodeBin('page-retry');
+    const dir = path.resolve(path.dirname(bin), '../examples');
+    const result = run('node', [bin, path.join(dir, 'plan.json'), path.join(dir, example + '.txt')]);
+    const report = JSON.parse(result.out);
+    return result.code === code && report.checkedRows === 2 &&
+      report.reviewPages.join(',') === (code ? '2' : '');
+  });
+}
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

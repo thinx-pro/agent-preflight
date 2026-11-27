@@ -1,0 +1,5 @@
+Quarter   Sales (USD)
+Q1   100   USD
+Quarter   Sales (USD)
+Q2   120   EUR
+

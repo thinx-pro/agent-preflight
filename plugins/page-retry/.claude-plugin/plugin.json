@@ -1,0 +1,17 @@
+{
+  "name": "page-retry",
+  "version": "0.1.0",
+  "description": "List pages where a saved table export lost, changed or repeated an annotated row",
+  "author": {
+    "name": "thinx-pro",
+    "url": "https://github.com/thinx-pro"
+  },
+  "homepage": "https://github.com/thinx-pro/agent-preflight/tree/main/plugins/page-retry",
+  "repository": "https://github.com/thinx-pro/agent-preflight",
+  "license": "MIT",
+  "keywords": [
+    "documents",
+    "tables",
+    "ocr"
+  ]
+}

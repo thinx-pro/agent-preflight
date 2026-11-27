@@ -12,7 +12,7 @@
     {
       "name": "all",
       "source": "./",
-      "description": "All 24 skills below in one install",
+      "description": "All 25 skills below in one install",
       "version": "0.2.4",
       "category": "bundle"
     },
@@ -302,6 +302,18 @@
         "local-models",
         "latency",
         "inference"
+      ]
+    },
+    {
+      "name": "page-retry",
+      "source": "./plugins/page-retry",
+      "description": "List pages where a saved table export lost, changed or repeated an annotated row",
+      "version": "0.1.0",
+      "category": "verify",
+      "keywords": [
+        "documents",
+        "tables",
+        "ocr"
       ]
     }
   ]
