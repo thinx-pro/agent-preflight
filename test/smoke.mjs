@@ -341,6 +341,15 @@ for (const [example, code] of [['changed', 1], ['clean', 0]]) {
   });
 }
 
+for (const [example, expected] of [['rx6700s', [4350]], ['flat', []]]) {
+  check('loop-placement microbatch sweep: ' + example, () => {
+    const bin = nodeBin('loop-placement');
+    const file = path.resolve(path.dirname(bin), '../examples', example + '.json');
+    const result = run('node', [bin, '--sweep', file]);
+    return result.code === 0 && JSON.stringify(JSON.parse(result.out).rises.map(row => row.delta)) === JSON.stringify(expected);
+  });
+}
+
 let failed = 0;
 for (const [name, fn] of checks) {
   let ok = false;

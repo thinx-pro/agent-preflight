@@ -1,0 +1,15 @@
+{
+  "configuration": "RX6700S gfx1030, llama.cpp f89a243d53, Inkling-2-Mini Q2_K_XL, batch 128, context 3200",
+  "metric": "VRAM used",
+  "unit": "source table units (unspecified)",
+  "minimumRise": 1000,
+  "samples": [
+    {"ubatch": 29, "value": 2320},
+    {"ubatch": 30, "value": 2322},
+    {"ubatch": 31, "value": 2322},
+    {"ubatch": 32, "value": 6672},
+    {"ubatch": 33, "value": 6672},
+    {"ubatch": 34, "value": 6672},
+    {"ubatch": 35, "value": 6672}
+  ]
+}

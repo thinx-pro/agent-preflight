@@ -1,6 +1,6 @@
 ---
 name: loop-placement
-description: Compare GPU layer splits for a decoder with a repeated core. Use when someone asks how often a proposed layer placement crosses devices or where llama.cpp reports model, KV, compute or output buffers.
+description: Compare GPU layer splits for a decoder with a repeated core. Use when someone asks how often a proposed layer placement crosses devices or where llama.cpp reports model, KV, compute or output buffers, or which microbatch interval shows a jump in measured GPU memory.
 ---
 
 Read the bundled tool README for the JSON schema. Obtain the ordered device assignment, zero-based half-open core range and total pass count from the user or their saved plan. Ask for missing values. Label hypothetical layouts as examples.
@@ -10,3 +10,5 @@ Run `node "${CLAUDE_SKILL_DIR}/tool/bin/loop-placement.js" PLAN.json` for each p
 For a saved log from one startup, run `node "${CLAUDE_SKILL_DIR}/tool/bin/loop-placement.js" --buffers STARTUP.log`. List all reported model and KV allocations by device in MiB. Distinguish an absent record from a reported zero. Preserve repeated entries. Use exit 2 to explain missing or unsupported input. Report per-layer placement only when independently evidenced.
 
 For a partial startup or to inspect compute and output reservations, run `node "${CLAUDE_SKILL_DIR}/tool/bin/loop-placement.js" --memory STARTUP.log`. Name the backend and list reported MiB entries by kind. Keep repeated reservations separate because they can overlap or be replaced.
+
+When comparing microbatch settings, run `node "${CLAUDE_SKILL_DIR}/tool/bin/loop-placement.js" --sweep SERIES.json`. Use one fixed setup and metric, as documented in the bundled README. Report both measured endpoints, their values, units, difference and count of untested settings between them. Ask for separate series if setup or metric changes.

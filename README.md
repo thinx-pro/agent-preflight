@@ -62,7 +62,7 @@ From a terminal: `claude plugin marketplace add thinx-pro/agent-preflight`, then
 | **Models** | | |
 | "Did the agent commit files outside the plan?" | `commit-scope` | Checks the resumed worktree before editing and the agreed paths after delivery. [Try the demo](plugins/commit-scope/skills/commit-scope/tool/README.md). |
 | "Does my local model do tool calls properly?" | `toolcall-smoke` | 20 tool-calling cases against Ollama, llama.cpp, LM Studio, vLLM or any OpenAI-compatible server |
-| "How often does this loop cross GPUs?" | [loop-placement](plugins/loop-placement) | Compare proposed layer splits and inspect model, KV, compute and output buffers in a llama.cpp log |
+| "How often does this loop cross GPUs?" | [loop-placement](plugins/loop-placement) | Compare proposed layer splits and find GPU memory jumps across microbatch settings or inspect startup buffers |
 | "How much disk for these model shards?" | [shard-budget](plugins/shard-budget) | Count unique indexed weight bytes before downloading |
 | "Do we use DeepSeek anywhere?" | `model-census` | Model ids, endpoints and SDKs in a codebase, mapped to whose weights they're built on; CI deny gate, CycloneDX |
 

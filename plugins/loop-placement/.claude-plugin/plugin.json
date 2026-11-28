@@ -1,6 +1,6 @@
 {
   "name": "loop-placement",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Compare looped decoder layer splits and read llama.cpp startup memory reservations",
   "author": {
     "name": "thinx-pro",

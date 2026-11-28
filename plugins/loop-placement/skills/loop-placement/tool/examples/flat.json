@@ -1,0 +1,7 @@
+{
+  "configuration": "Synthetic fixed setup",
+  "metric": "compute buffer",
+  "unit": "MiB",
+  "minimumRise": 100,
+  "samples": [{"ubatch": 8, "value": 21}, {"ubatch": 16, "value": 24}]
+}

@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Pre-flight checks for coding agents: leaked secrets, blast radius, costs, runaway processes, cheating tests. Offline, zero dependencies.",
-    "version": "0.2.4"
+    "version": "0.2.5"
   },
   "plugins": [
     {
       "name": "all",
       "source": "./",
       "description": "All 25 skills below in one install",
-      "version": "0.2.4",
+      "version": "0.2.5",
       "category": "bundle"
     },
     {
@@ -284,7 +284,7 @@
       "name": "loop-placement",
       "source": "./plugins/loop-placement",
       "description": "Compare looped decoder layer splits and read llama.cpp startup memory reservations",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "category": "models",
       "keywords": [
         "local-models",

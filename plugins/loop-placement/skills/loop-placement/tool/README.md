@@ -45,6 +45,14 @@ Use `--memory STARTUP.log` to add `computeMiB` and `outputMiB` arrays. The reade
 
 In [llama.cpp #33040](https://github.com/ggml-org/llama.cpp/issues/33040), a dual-GPU user's weight placement could fit while compute buffer allocation still failed. Earlier examples show the [llama_context](https://github.com/ggml-org/llama.cpp/issues/18181) and [sched_reserve](https://github.com/ggml-org/llama.cpp/discussions/20252) formats.
 
+## Find jumps in a microbatch sweep
+
+Run `node bin/loop-placement.js --sweep examples/rx6700s.json`. The seven observations from the [RX6700S report](https://github.com/ggml-org/llama.cpp/issues/32910#issuecomment-7216246777) yield a single interval, 31 to 32, with a rise from 2322 to 6672 (+4350 in the source table’s unspecified units). The example uses a threshold of 1000.
+
+Copy the JSON and record one observation per microbatch. Hold the build, weights, device, remaining flags, workload, measurement phase and measurement method fixed. Use one metric and unit throughout. Keep total VRAM usage and compute-buffer reservations in separate series. Set `minimumRise` in that unit. The tool sorts by microbatch and reports every consecutive observed pair whose upward difference reaches the threshold. With gaps, `untestedBetween` counts unmeasured settings inside the interval. An empty list means no measured pair met the threshold. Exit 0 indicates a valid comparison, including one with rises. Invalid input exits 2.
+
+The configuration label is supplied by the caller. The command cannot verify the setup, attribute the change to an allocator, or estimate throughput. Re-run the bracket on your own machine before choosing a setting.
+
 ## Limits and roadmap
 
 This models one contiguous fixed-pass loop with whole-layer placement. Input and output heads, KV cache, expert offload and tensor parallelism are outside the model. Counts describe a proposed layout. Hardware traffic, fit, latency and output quality require measurement. Layer-level mapping still requires separate evidence.
